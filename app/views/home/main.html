@@ -1,0 +1,67 @@
+{extends file="../main.html"}
+{block name="cssjs"}
+
+{/block}
+{block name="body"}
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            欢迎页
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 个人中心</a></li>
+            <li class="active">欢迎页</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-13">
+                <div class="box box-solid">
+                    <div class="box-body">
+                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                        <div class="panel box box-primary">
+                            <!-- <div class="box-header">
+                                <h3 class="box-title">Bordered Table</h3>
+                            </div> --><!-- /.box-header -->
+                            <div class="box-body">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:20%;"><label for="InputMastername">上次登录时间</label></th>
+                                            <td>{$user.lastlogintime}</td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="InputMasterpwd">用户名</label></th>
+                                            <td>{$user.mastername}</td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="InputFullname">姓名</label></th>
+                                            <td>{$user.fullname}</td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="InputMobile">邮箱</label></th>
+                                            <td>{$user.email}</td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="InputEmail">所属部门</label></th>
+                                            <td>{$user.deptname}</td>
+                                        </tr>
+                                        <tr>
+                                            <th><label for="InputDeptname">角色</label></th>
+                                            <td>{foreach $user.role as $r}<span>{$r.rolename}</span><br />{/foreach}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div>
+    </section><!-- /.content -->
+</aside><!-- /.right-side -->
+{/block}

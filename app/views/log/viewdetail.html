@@ -1,0 +1,65 @@
+{extends file="../main.html"}
+{block name="title"}系统管理{/block}
+{block name="cssjs"}
+
+{/block}
+{block name="body"}
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            查看日志详情
+            <small>Log</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-folder"></i> 系统管理</a></li>
+            <li class="active">查看日志详情</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-13">
+                <div class="box box-solid">
+                    <div class="box-body">
+                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                        <div class="panel box box-primary">
+                            <div class="box-body">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:20%;">日志ID</th>
+                                            <td>{$log_info['logid']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>操作者用户名</th>
+                                            <td>{$log_info['mastername']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>动作</th>
+                                            <td>{$action_info['actionname']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>URL</th>
+                                            <td>{$log_info['url']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>GET数据</th>
+                                            <td>{$log_info['get']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>POST数据</th>
+                                            <td>{$log_info['post']}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div>
+    </section><!-- /.content -->
+</aside>
+{/block}

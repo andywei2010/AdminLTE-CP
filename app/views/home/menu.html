@@ -1,0 +1,70 @@
+{config_load file='smarty.conf'}
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                {if $user.master_sex eq '1'}
+                <img src="{#SITE_DOMAIN_ASSETS#}/images/avatar5.png" class="img-circle" alt="User Image" />
+                {else}
+                <img src="{#SITE_DOMAIN_ASSETS#}/images/avatar3.png" class="img-circle" alt="User Image" />
+                {/if}
+            </div>
+            <div class="pull-left info">
+                <p>您好, {$user.fullname}</p>
+
+                <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+            </div>
+        </div>
+        <!-- search form -->
+       <!--  <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Search..."/>
+                <span class="input-group-btn">
+                    <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                </span>
+            </div>
+        </form> -->
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="user-info active">
+                <a href="/home/index/">
+                    <i class="fa fa-dashboard"></i> <span>个人中心</span>
+                </a>
+            </li>
+            {foreach $menu_class as $mk => $mv}
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-folder"></i> <span>{$mv}</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    {foreach $menu[$mk] as $v}
+                    <li class="menu-li">
+                        <a href="{$v[0]}" class="current-menu" name="{$mk}" id="{$v[0]|replace:'/':'_'}" target="main"><i class="fa fa-angle-double-right"></i> {$v[1]}</a>
+                    </li>
+                    {/foreach}
+                </ul>
+            </li>
+            {/foreach}
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
+<script type="text/javascript">
+//页面加载 初始化
+$(function() {
+    //取消“个人中心”默认选中
+    $(".treeview").click(function(e){
+        $(".user-info").removeClass("active");
+    });
+    //点击选中二级菜单标题
+    $(".current-menu").click(function(e){
+        $(".menu-li").removeClass("active");
+        $(this).parent().addClass("active");
+    });
+});
+</script>

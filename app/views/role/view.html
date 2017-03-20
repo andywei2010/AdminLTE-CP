@@ -1,0 +1,95 @@
+{extends file="../main.html"}
+{block name="title"}用户管理{/block}
+{block name="cssjs"}
+
+{/block}
+{block name="body"}
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            浏览角色
+            <small>Role</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-folder"></i> 用户管理</a></li>
+            <li class="active">浏览角色</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-13">
+                <div class="box box-solid">
+                    <!-- <div class="box-header">
+                        <h3 class="box-title">Collapsible Accordion</h3>
+                    </div> --><!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="callout callout-info">
+                            <div class="row">
+                                <form action="/role/view/" method="get" class="search-form">
+                                    <div class="col-sm-3">
+                                        <label>角色名称：</label>
+                                        <input id="rolename" type="text" name="rolename" value="{$get['rolename']}">
+                                    </div>
+                                    <input type="submit" class="btn btn-success btn-sm" style="line-height:1;" value="查询">
+                                </form>
+                            </div>
+                        </div>
+                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                        <div class="panel box box-primary">
+                            <div class="box-header">
+                                <div class="box-tools pull-right">
+                                    {if $action['add']}
+                                    <a href="/role/add/"><div class="label bg-aqua">添加角色</div></a>
+                                    {/if}
+                                </div>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="box-body table-responsive">
+                                    <table id="content-list" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>角色ID</th>
+                                                <th>角色名称</th>
+                                                <th>创建时间</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {foreach $role_list as $r}
+                                            <tr>
+                                                <td>{$r['roleid']}</td>
+                                                <td>{$r['rolename']}</td>
+                                                <td>{$r['createtime']}</td>
+                                                <td>
+                                                    {if $action['viewdetail']}
+                                                    <a href="/role/viewdetail/?roleid={$r['roleid']}"><span class="badge bg-red">详情</span></a>
+                                                    {/if}
+                                                    {if $action['edit']}
+                                                    <a href="/role/edit/?roleid={$r['roleid']}"><span class="badge bg-light-blue">编辑</span></a>
+                                                    {/if}
+                                                    {if $action['delete']}
+                                                    <a href="/role/delete/?roleid={$r['roleid']}" class="delete"><span class="badge bg-yellow">删除</span></a>
+                                                    {/if}
+                                                </td>
+                                            </tr>
+                                            {foreachelse}
+                                            <tr>
+                                                <td colspan="4" style="text-align:center;">暂无</td>
+                                            </tr>
+                                            {/foreach}
+                                        </tbody>
+                                    </table>
+                                </div><!-- /.box-body -->
+                                {$links}
+                            </div>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div>
+    </section><!-- /.content -->
+</aside>
+{/block}

@@ -1,0 +1,116 @@
+{extends file="../main.html"}
+{block name="title"}用户管理{/block}
+{block name="cssjs"}
+
+{/block}
+{block name="body"}
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            查看角色详情
+            <small>Role</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-folder"></i> 用户管理</a></li>
+            <li class="active">查看角色详情</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-13">
+                <div class="box box-solid">
+                    <div class="box-body">
+                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                        <div class="panel box box-primary">
+                            <!-- <div class="box-header">
+                                <h3 class="box-title">Bordered Table</h3>
+                            </div> --><!-- /.box-header -->
+                            <div class="box-body">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:20%;">角色ID</th>
+                                            <td>{$role.roleid}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>角色名称</th>
+                                            <td>{$role.rolename}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>角色描述</th>
+                                            <td>{$role.roleinfo}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>角色用户</th>
+                                            <td>
+                                                <table class="table table-bordered">
+                                                    <tr style="background-color:#FCFCFC;font-weight:bold">
+                                                        <td>登录名</td>
+                                                        <td>姓名</td>
+                                                        <td>部门</td>
+                                                        <td>手机号</td>
+                                                    </tr>
+                                                    {foreach $role.user as $u}
+                                                    <tr>
+                                                        <td>{$u.mastername}</td>
+                                                        <td>{$u.fullname}</td>
+                                                        <td>{$u.deptname}</td>
+                                                        <td>{$u.mobile}</td>
+                                                    </tr>
+                                                    {foreachelse}
+                                                    <tr>
+                                                       <td colspan="4" style="text-align:center;">暂无</td> 
+                                                    </tr>
+                                                    {/foreach}
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>功能权限</th>
+                                            <td style="padding:5px 0px 0px;">
+                                                <div class="box-body no-padding">
+                                                    <table class="table table-striped">
+                                                        <tbody>
+                                                            {foreach $role.class as $classid => $classname}
+                                                            <tr>
+                                                                <th>{$classname}</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                {foreach $role.action as $v}
+                                                                    {if $v.classid==$classid}
+                                                                    <span class="badge bg-gray" style="margin-right:5px;">
+                                                                        <font color="#000">{$v.actionname}</font>
+                                                                    </span>
+                                                                    {/if}
+                                                                {/foreach}
+                                                                </td>
+                                                            </tr>
+                                                            {/foreach}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>创建者</th>
+                                            <td>{$role.creator.mastername}（{$role.creator.fullname}）</td>
+                                        </tr>
+                                        <tr>
+                                            <th>角色创建时间</th>
+                                            <td>{$role.createtime}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div>
+    </section><!-- /.content -->
+</aside>
+{/block}

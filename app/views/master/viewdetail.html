@@ -1,0 +1,101 @@
+{extends file="../main.html"}
+{block name="title"}用户管理{/block}
+{block name="cssjs"}
+
+{/block}
+{block name="body"}
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            查看用户详情
+            <small>Master</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-folder"></i> 用户管理</a></li>
+            <li class="active">查看用户详情</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-13">
+                <div class="box box-solid">
+                    <div class="box-body">
+                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                        <div class="panel box box-primary">
+                            <!-- <div class="box-header">
+                                <h3 class="box-title">Bordered Table</h3>
+                            </div> --><!-- /.box-header -->
+                            <div class="box-body">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width:20%;">用户ID</th>
+                                            <td>{$master['masterid']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>用户名</th>
+                                            <td>{$master['mastername']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>真实姓名</th>
+                                            <td>{$master['fullname']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>手机号</th>
+                                            <td>{$master['mobile']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>邮箱</th>
+                                            <td>{$master['email']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>所属部门</th>
+                                            <td>{$master['deptname']}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>角色</th>
+                                            <td>
+                                            {foreach $master.role as $r}
+                                                <li><span>{$r.rolename}</span></li>
+                                            {/foreach}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>功能权限</th>
+                                            <td style="padding:5px 0px 0px;">
+                                                <div class="box-body no-padding">
+                                                    <table class="table table-striped">
+                                                        <tbody>
+                                                            {foreach $master.class as $classid => $classname}
+                                                            <tr>
+                                                                <th>{$classname}</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    {foreach $master.action as $v}
+                                                                        {if $v.classid==$classid}
+                                                                            <span class="badge bg-gray"><font color="#000">{$v['actionname']}</font></span>&nbsp;
+                                                                        {/if}
+                                                                    {/foreach}
+                                                                </td>
+                                                            </tr>
+                                                            {/foreach}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- /.box-body -->
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+        </div>
+    </section><!-- /.content -->
+</aside>
+{/block}

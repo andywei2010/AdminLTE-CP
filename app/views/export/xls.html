@@ -1,0 +1,22 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="ProgId" content="Excel.Sheet"/>
+ </head>
+ <body>
+<table border="1">
+	<tr>
+		{foreach $header as $v}
+		<th x:str>{$v}</th>
+		{/foreach}
+	</tr>
+	{foreach $data as $d}
+	<tr>
+		{foreach $d as $kk=>$dd}
+		<td {$ftype[$dd@index]}>{$dd}</td>
+		{/foreach}
+	</tr>
+	{/foreach}
+</table>
+ </body>
+</html>
