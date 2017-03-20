@@ -1,0 +1,9 @@
+SetEnv SITE_ENV 'development'
+SetEnv SITE_CACHE_DIR 'c:\tmp\cache'
+SetEnv SITE_LOG_DIR 'c:\tmp\log'
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(/images/|/js/|/css/|/index\.php|/robots\.txt|/favicon\.ico)
+RewriteRule ^(.*)$ /index.php/$1 [L]
