@@ -13,10 +13,10 @@
 
 `如使用 Nginx，配置以下几个环境变量：`
 
-`SetEnv SITE_ENV 'development'`
+`fastcgi_param SITE_ENV 'development'`
 
-`SetEnv SITE_CACHE_DIR 'c:\tmp\cache'`
+`fastcgi_param SITE_CACHE_DIR 'c:\tmp\cache'`
 
-`SetEnv SITE_LOG_DIR 'c:\tmp\log'`
+`fastcgi_param SITE_LOG_DIR 'c:\tmp\log'`
 
 ### Done
