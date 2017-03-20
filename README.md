@@ -2,7 +2,7 @@
 基于 Codeigniter 3.0.6 + Smarty 3 + AdminLTE + SeaJs 2.2 + Art-Template + RBAC 的后台管理系统
 
 ### 使用
-1.`https://github.com/andywei2010/AdminLTE-CP.git`
+1.`git clone https://github.com/andywei2010/AdminLTE-CP.git`
 
 2.`新建 gitlibs_cp 库，将 gitlibs_cp.sql 导入 mysql ，并修改 app/config/database.php 配置项`
 
